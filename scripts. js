@@ -1,0 +1,20 @@
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+  const open = navLinks.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', String(open));
+});
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById('registrationForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+  const message = document.getElementById('formMessage');
+  message.textContent = 'Thanks. This demo form is working, but a secure backend must be connected before real submissions are stored or sent.';
+  this.reset();
+});
